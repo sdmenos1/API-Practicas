@@ -1,5 +1,5 @@
 export type FilterType = {
-    name?: string;
-    status?: string;
-    species?: string;
+  name?: string;
+  status?: string;
+  species?: string;
 };
