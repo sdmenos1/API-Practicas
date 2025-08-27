@@ -9,10 +9,10 @@ export const api = createApi({
        getCharacters:builder.query({
         query: () => '/character',
        }),
-       getCharacterById:builder.query({
-        query: (id: number) => `/character/${id}`,
+       getCharacterByPage:builder.query({
+        query: (page: number) => `/character?page=${page}`,
        }),
     }),
 })
 
-export const {useGetCharactersQuery, useGetCharacterByIdQuery} = api
+export const {useGetCharactersQuery, useGetCharacterByPageQuery} = api
