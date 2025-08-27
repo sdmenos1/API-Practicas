@@ -14,6 +14,12 @@ export const Filters = ({ onChange }: Props) => {
       status: status || undefined,
       species: species || undefined,
     });
+  const handleReset = () => {
+    setName("");
+    setStatus("");
+    setSpecies("");
+    onChange({ name: undefined, status: undefined, species: undefined });
+  };
   return (
     <div className="flex gap-2">
       <input
@@ -44,12 +50,7 @@ export const Filters = ({ onChange }: Props) => {
         Buscar
       </button>
       <button
-        onClick={() => {
-          setName("");
-          setStatus("");
-          setSpecies("");
-          onChange({ name: undefined, status: undefined, species: undefined });
-        }}
+        onClick={handleReset}
         className="border border-black rounded-md p-1 text-black"
       >
         Reset

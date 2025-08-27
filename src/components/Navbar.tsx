@@ -11,7 +11,7 @@ export default function Navbar() {
 
       <div className="relative left-180">
         <Link href="/comments">
-          <button className=" text-white p-2 rounded-lg border border-black">
+          <button className=" text-white p-2 rounded-lg border border-black cursor-pointer">
             <User />
           </button>
         </Link>
