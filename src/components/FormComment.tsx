@@ -23,7 +23,7 @@ export default function FormComment() {
   };
 
   return (
-    <div className="h-1/2 bg-gray-50 flex items-center justify-center relative right-7 top-4">
+    <div className="h-1/2 bg-gray-50 flex items-center justify-center relative right-7 top-20">
       <div className="w-full max-w-md relative">
         <div className="absolute -inset-1 bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 rounded-2xl blur opacity-20 animate-pulse"></div>
         <div className="absolute -inset-0.5 bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 rounded-2xl opacity-15 animate-pulse"></div>
@@ -42,46 +42,56 @@ export default function FormComment() {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div className="space-y-2">
               <label
-                htmlFor="character"
+                htmlFor="name"
                 className="text-sm font-medium text-green-700 flex items-center gap-2"
               >
                 <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                Personaje
+                Nombre
               </label>
               <input
                 type="text"
-                {...register("character", {
-                  required: "Character is required",
+                {...register("name", {
+                  required: "Nombre es requerido",
                 })}
                 className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/20 transition-all duration-300 ${
-                  errors.character
+                  errors.name
                     ? "border-red-500 focus:border-red-500 focus:ring-red-500/20"
                     : "border-gray-300 hover:border-gray-400"
                 }`}
                 placeholder="Rick, Morty, Jerry..."
               />
-              {errors.character && (
+              {errors.name && (
                 <p className="text-red-600 text-xs flex items-center gap-1">
                   <AlertCircle className="h-3 w-3" />
-                  {errors.character.message}
+                  {errors.name.message}
                 </p>
               )}
             </div>
 
             <div className="space-y-2">
               <label
-                htmlFor="title"
+                htmlFor="email"
                 className="text-sm font-medium text-blue-700 flex items-center gap-2"
               >
                 <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
-                Titulo
+                Email
               </label>
               <input
                 type="text"
-                {...register("title")}
-                className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-300 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 hover:border-gray-400"
-                placeholder="Titulo o tema..."
+                {...register("email", { required: "Email es requerido" })}
+                className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 ${
+                  errors.email
+                    ? "border-red-500 focus:border-red-500 focus:ring-red-500/20"
+                    : "border-gray-300 hover:border-gray-400"
+                }`}
+                placeholder="email@example.com"
               />
+              {errors.email && (
+                <p className="text-red-600 text-xs flex items-center gap-1">
+                  <AlertCircle className="h-3 w-3" />
+                  {errors.email.message}
+                </p>
+              )}
             </div>
 
             <div className="space-y-2">

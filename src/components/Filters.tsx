@@ -8,12 +8,14 @@ export const Filters = ({ onChange }: Props) => {
   const [name, setName] = useState<string>("");
   const [status, setStatus] = useState<string>("");
   const [species, setSpecies] = useState<string>("");
+
   const handleNameChange = () =>
     onChange({
       name: name || undefined,
       status: status || undefined,
       species: species || undefined,
     });
+
   const handleReset = () => {
     setName("");
     setStatus("");
