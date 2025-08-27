@@ -1,16 +1,19 @@
 import { useState } from "react";
 interface Props {
-  onChange: (filters: {
-    name?: string;
-    status?: string;
-    species?: string;
-  }) => void;
+  onChange: (filters: FilterType) => void;
 }
+import type { FilterType } from "../app/types/filterType";
+
 export const Filters = ({ onChange }: Props) => {
   const [name, setName] = useState<string>("");
   const [status, setStatus] = useState<string>("");
   const [species, setSpecies] = useState<string>("");
-  const handleNameChange = () => onChange({ name, status, species });
+  const handleNameChange = () =>
+    onChange({
+      name: name || undefined,
+      status: status || undefined,
+      species: species || undefined,
+    });
   return (
     <div className="flex gap-2">
       <input
@@ -39,6 +42,17 @@ export const Filters = ({ onChange }: Props) => {
         className="border border-black rounded-md p-1 text-black"
       >
         Buscar
+      </button>
+      <button
+        onClick={() => {
+          setName("");
+          setStatus("");
+          setSpecies("");
+          onChange({ name: undefined, status: undefined, species: undefined });
+        }}
+        className="border border-black rounded-md p-1 text-black"
+      >
+        Reset
       </button>
     </div>
   );

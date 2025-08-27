@@ -2,7 +2,7 @@ import { useGetCharacterFilterQuery } from "../app/services/api";
 import { useState } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
-import CharacterCard from "./CharacterCard";
+import CharacterCard from "./CardCharacter";
 import { Filters } from "./Filters";
 import type { FilterType } from "../app/types/filterType";
 export default function Card() {

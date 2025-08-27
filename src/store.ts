@@ -1,13 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { api } from "./app/services/api"; // 👈 asegúrate de exportar api en ese archivo
 import { setupListeners } from "@reduxjs/toolkit/query";
+import { apiComment } from "./app/services/apiComment";
 
 export const store = configureStore({
   reducer: {
     [api.reducerPath]: api.reducer,
+    [apiComment.reducerPath]: apiComment.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(api.middleware),
+    getDefaultMiddleware().concat(api.middleware, apiComment.middleware),
 });
 
 setupListeners(store.dispatch);
